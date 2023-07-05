@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://kahd1mq4dp30"]
+[gd_scene load_steps=17 format=3 uid="uid://kahd1mq4dp30"]
 
-[ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="1_8giyc"]
-[ext_resource type="PackedScene" uid="uid://btdusi7m3ilte" path="res://object_scenes/vocab_button.tscn" id="1_dgs8b"]
-[ext_resource type="StyleBox" uid="uid://co3dci5pgbrj" path="res://resources/themes/basic_menu_button.tres" id="2_fhj06"]
-[ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="2_n21s3"]
+[ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="1_10p8h"]
+[ext_resource type="StyleBox" uid="uid://co3dci5pgbrj" path="res://resources/themes/basic_menu_button.tres" id="2_7fg3o"]
+[ext_resource type="Script" path="res://display_scenes/vocab_A_menu.gd" id="3_rmgsl"]
+[ext_resource type="PackedScene" uid="uid://btdusi7m3ilte" path="res://object_scenes/vocab_button.tscn" id="4_dykg8"]
+[ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="5_66ji3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11g12"]
 content_margin_left = 4.0
@@ -25,10 +26,11 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.75)
 draw_center = false
-border_width_left = 2
-border_width_top = 2
+border_width_left = 5
+border_width_top = 5
 border_width_right = 2
-border_width_bottom = 2
+border_width_bottom = 5
+border_color = Color(1, 0.678431, 0.45098, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -136,14 +138,14 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/h_separation = 2
 Button/constants/outline_size = 1
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_8giyc")
+Button/fonts/font = ExtResource("1_10p8h")
 Button/styles/disabled = SubResource("StyleBoxFlat_11g12")
 Button/styles/focus = SubResource("StyleBoxFlat_ljevj")
 Button/styles/hover = SubResource("StyleBoxFlat_qrqoq")
-Button/styles/normal = ExtResource("2_fhj06")
+Button/styles/normal = ExtResource("2_7fg3o")
 Button/styles/pressed = SubResource("StyleBoxFlat_yt78t")
-Fonts/fonts/large = ExtResource("1_8giyc")
-Fonts/fonts/normal = ExtResource("1_8giyc")
+Fonts/fonts/large = ExtResource("1_10p8h")
+Fonts/fonts/normal = ExtResource("1_10p8h")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -153,7 +155,7 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_8giyc")
+Label/fonts/font = ExtResource("1_10p8h")
 Label/styles/normal = SubResource("StyleBoxEmpty_5s1a6")
 VScrollBar/icons/decrement = SubResource("ImageTexture_pr422")
 VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_pr422")
@@ -167,7 +169,7 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_mi50r")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_r1mxu")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_ljevj")
 
-[node name="vocabulary_menu" type="Control"]
+[node name="vocab_A_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,6 +177,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bacig")
+script = ExtResource("3_rmgsl")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -211,32 +214,21 @@ layout_mode = 2
 [node name="vocab_button_list" type="VBoxContainer" parent="margin_container/h_box_container/MarginContainer/scroll_container"]
 layout_mode = 2
 
-[node name="vocab_button" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
+[node name="vocab_button" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("4_dykg8")]
 layout_mode = 2
+target = 1
 
-[node name="vocab_button2" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
+[node name="vocab_button2" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("4_dykg8")]
 layout_mode = 2
+target = 2
 
-[node name="vocab_button3" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
+[node name="vocab_button3" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("4_dykg8")]
 layout_mode = 2
+target = 3
 
-[node name="vocab_button4" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
+[node name="vocab_button4" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("4_dykg8")]
 layout_mode = 2
-
-[node name="vocab_button5" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
-layout_mode = 2
-
-[node name="vocab_button6" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
-layout_mode = 2
-
-[node name="vocab_button7" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
-layout_mode = 2
-
-[node name="vocab_button8" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
-layout_mode = 2
-
-[node name="vocab_button9" parent="margin_container/h_box_container/MarginContainer/scroll_container/vocab_button_list" instance=ExtResource("1_dgs8b")]
-layout_mode = 2
+target = 4
 
 [node name="vocab_resources" type="Control" parent="margin_container/h_box_container"]
 custom_minimum_size = Vector2(800, 0)
@@ -279,20 +271,19 @@ theme_override_constants/margin_bottom = 10
 [node name="illustration" type="TextureRect" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/illustration_margin"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("2_n21s3")
+texture = ExtResource("5_66ji3")
 stretch_mode = 5
 
 [node name="word_input_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
-visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container"]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Type the Word to unlock the sentence example 
 and the next word!"
 horizontal_alignment = 1
-vertical_alignment = 2
 
 [node name="h_box_container" type="HBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container"]
 layout_mode = 2
@@ -312,6 +303,7 @@ layout_mode = 2
 text = "Submit"
 
 [node name="wrong_warning" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.321569, 0.321569, 1)
 theme_override_font_sizes/font_size = 20
@@ -320,14 +312,21 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="contents_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
+visible = false
 layout_mode = 2
+
+[node name="example_label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83, 0.912167, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Sentence Example:"
+horizontal_alignment = 1
 
 [node name="example" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container"]
 custom_minimum_size = Vector2(0, 115)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Sentence Example;
-Sentence Example will be shown here
+text = "Sentence Example will be shown here
 And the translation here"
 horizontal_alignment = 1
 
@@ -339,6 +338,10 @@ alignment = 1
 custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 text = "Previous"
+
+[node name="margin" type="Control" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
 
 [node name="next" type="Button" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons"]
 custom_minimum_size = Vector2(140, 35)
@@ -353,5 +356,9 @@ offset_top = 30.0
 offset_right = 168.0
 offset_bottom = 158.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_n21s3")
+texture_normal = ExtResource("5_66ji3")
 stretch_mode = 5
+
+[connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container/h_box_container/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons/previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons/next" to="." method="_on_next_pressed"]
