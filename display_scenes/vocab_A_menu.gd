@@ -69,3 +69,27 @@ func _on_previous_pressed():
 
 func _on_next_pressed():
 	main_dictionaries.selected_target += 1
+
+
+func _on_texture_button_pressed():
+	#UNLOCK EVERYTHING
+	for i in main_dictionaries.vocab_a:
+		if not i == "40":
+			main_dictionaries.vocab_a[i].input_done = true
+			main_dictionaries.vocab_a[i].locked = false
+		else:
+			main_dictionaries.vocab_a[i].locked = false
+
+
+func _on_text_input_text_submitted(new_text):
+	var check_input = new_text.matchn(english_word.text)
+	#input_text.get_text().matchn(english_word.text)
+	
+	if check_input:
+		input_text.clear()
+		wrong_warning.visible = false
+		main_dictionaries.vocab_a[str(current_word_number)].input_done = true
+		if current_word_number < main_dictionaries.vocab_a.size():
+			main_dictionaries.vocab_a[str(current_word_number + 1)].locked = false
+	else:
+		wrong_warning.visible = true
