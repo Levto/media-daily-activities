@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://6dtga52dhecl"]
+[gd_scene load_steps=4 format=3 uid="uid://6dtga52dhecl"]
 
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="1_1ymll"]
 [ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="1_qvd3c"]
+[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="3_d45sn"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -9,6 +11,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ymll")
 
 [node name="margin_container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -24,3 +35,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_qvd3c")
 stretch_mode = 3
+
+[node name="bgm_player" parent="." instance=ExtResource("3_d45sn")]

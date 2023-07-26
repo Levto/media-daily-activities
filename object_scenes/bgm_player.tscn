@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl8uwe21hwh64"]
+
+[ext_resource type="AudioStream" uid="uid://mq43uuld2b4u" path="res://resources/bgm/Hod-Story.ogg" id="1_pvdxe"]
+[ext_resource type="Script" path="res://object_scenes/bgm_player.gd" id="2_vtosj"]
+
+[node name="bgm_player" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_pvdxe")
+volume_db = -5.0
+script = ExtResource("2_vtosj")

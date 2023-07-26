@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://di0hdrglbtjgk"
+path="res://.godot/imported/Take a Rest.wav-48ebc6cb1a7e0ea678e0388504d91026.sample"
+
+[deps]
+
+source_file="res://resources/word_audio/Take a Rest.wav"
+dest_files=["res://.godot/imported/Take a Rest.wav-48ebc6cb1a7e0ea678e0388504d91026.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv1mhlnsv8hde"]
+
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="1_bt2n6"]
+[ext_resource type="Texture2D" uid="uid://cmhxxjuv0vk34" path="res://resources/images/malkuth/1.png" id="2_w7an5"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="3_1p2id"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="3_bhgyj"]
+[ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="4_4c5xv"]
+[ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="5_cpyyf"]
+
+[node name="lesson_content" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -720.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_bt2n6")
+
+[node name="malkuth" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -596.0
+offset_top = -605.0
+offset_right = -363.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_w7an5")
+
+[node name="dialogue_box" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1100, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -550.0
+offset_top = -219.0
+offset_right = 550.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.137255, 0.156863, 0.168627, 0.901961)
+
+[node name="db_margin" type="MarginContainer" parent="dialogue_box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 20
+
+[node name="db_vbox_container" type="VBoxContainer" parent="dialogue_box/db_margin"]
+layout_mode = 2
+
+[node name="nametag" type="Label" parent="dialogue_box/db_margin/db_vbox_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bhgyj")
+theme_override_font_sizes/font_size = 36
+text = "   Ellie"
+
+[node name="dialogue" type="RichTextLabel" parent="dialogue_box/db_margin/db_vbox_container"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_4c5xv")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[color=red]help[/color]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+fit_content = true
+
+[node name="dialogue_prev" type="TextureButton" parent="dialogue_box"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("5_cpyyf")
+stretch_mode = 3
+
+[node name="dialogue_next" type="TextureButton" parent="dialogue_box"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_cpyyf")
+stretch_mode = 3
+
+[node name="back_button" parent="." instance=ExtResource("3_1p2id")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 36.0
+offset_right = 173.0
+offset_bottom = 164.0
+
+[node name="content" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -288.0
+offset_right = 486.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_cpyyf")

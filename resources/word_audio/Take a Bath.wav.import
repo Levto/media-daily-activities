@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjmqr5gvu0svn"
+path="res://.godot/imported/Take a Bath.wav-a8718f071c6cc6c79f543fb3e3ca7114.sample"
+
+[deps]
+
+source_file="res://resources/word_audio/Take a Bath.wav"
+dest_files=["res://.godot/imported/Take a Bath.wav-a8718f071c6cc6c79f543fb3e3ca7114.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://kahd1mq4dp30"]
+[gd_scene load_steps=21 format=3 uid="uid://kahd1mq4dp30"]
 
 [ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="1_10p8h"]
 [ext_resource type="StyleBox" uid="uid://co3dci5pgbrj" path="res://resources/themes/basic_menu_button.tres" id="2_7fg3o"]
 [ext_resource type="Script" path="res://display_scenes/vocab_A_menu.gd" id="3_rmgsl"]
+[ext_resource type="Texture2D" uid="uid://neqylpghvw53" path="res://resources/images/bg/BG2.png" id="4_aftt8"]
 [ext_resource type="PackedScene" uid="uid://btdusi7m3ilte" path="res://object_scenes/vocab_button.tscn" id="4_dykg8"]
 [ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="5_66ji3"]
+[ext_resource type="Texture2D" uid="uid://ckdnlgbw8t1pg" path="res://resources/images/ui/Audio_on.png" id="5_x45au"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="8_nih1d"]
+[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="9_10g3w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11g12"]
 content_margin_left = 4.0
@@ -187,6 +191,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.133333, 0.176471, 0.211765, 1)
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_aftt8")
 
 [node name="margin_container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -395,12 +408,22 @@ theme_override_constants/margin_bottom = 10
 [node name="v_box_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container"]
 layout_mode = 2
 
-[node name="english_word" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="english_word" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Vocabulary Word"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="word_audio" type="TextureButton" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture_normal = ExtResource("5_x45au")
+stretch_mode = 5
 
 [node name="translation" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
 layout_mode = 2
@@ -421,6 +444,7 @@ texture = ExtResource("5_66ji3")
 stretch_mode = 5
 
 [node name="word_input_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
+visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container"]
@@ -458,7 +482,6 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="contents_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
-visible = false
 layout_mode = 2
 
 [node name="example_label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container"]
@@ -494,34 +517,38 @@ custom_minimum_size = Vector2(140, 35)
 layout_mode = 2
 text = "Next"
 
-[node name="backk_button" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(100, 60)
+[node name="back_button" parent="." instance=ExtResource("8_nih1d")]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 30.0
-offset_right = 168.0
-offset_bottom = 158.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_66ji3")
-stretch_mode = 5
+offset_left = 48.0
+offset_top = 38.0
+offset_right = 176.0
+offset_bottom = 166.0
+target_scene = "main_menu"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="unlocker" type="TextureButton" parent="."]
+visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -71.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 71.0
+offset_left = -78.0
+offset_top = 18.0
+offset_right = -31.0
+offset_bottom = 65.0
 grow_horizontal = 0
 texture_normal = ExtResource("5_66ji3")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="word_audio" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+
+[node name="bgm_player" parent="." instance=ExtResource("9_10g3w")]
+
+[connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer/word_audio" to="." method="_on_word_audio_pressed"]
 [connection signal="text_submitted" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container/h_box_container/MarginContainer/text_input" to="." method="_on_text_input_text_submitted"]
 [connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container/h_box_container/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons/previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons/next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="unlocker" to="." method="_on_unlocker_pressed"]

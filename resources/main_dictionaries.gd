@@ -1,6 +1,9 @@
 # Stores all dictionaries for vocabularies
 extends Node
 
+#bgm playback getter
+var bgm_playback
+
 var selected_target: int = 1
 
 var vocab_a = {
@@ -28,7 +31,7 @@ var vocab_a = {
 	"4": {
 		"english_word": "Buy",
 		"translation": "Membeli",
-		"example": "He buys five apples.\nDia membeli lima buah apel.",
+		"example": "She buys five apples.\nDia membeli lima buah apel.",
 		"input_done": false,
 		"locked": true
 	},
@@ -42,7 +45,7 @@ var vocab_a = {
 	"6": {
 		"english_word": "Cook",
 		"translation": "Memasak",
-		"example": "Susi cooks a fried chicken.\nSusi memasak ayam goreng.",
+		"example": "Susi cooks in the kitchen.\nSusi memasak di dapur.",
 		"input_done": false,
 		"locked": true
 	},
@@ -63,7 +66,7 @@ var vocab_a = {
 	"9": {
 		"english_word": "Deliver",
 		"translation": "Mengantar",
-		"example": "The courier deliver my package.\nKurir itu mengantarkan paketku.",
+		"example": "The courier delivers my package.\nKurir itu mengantarkan paketku.",
 		"input_done": false,
 		"locked": true
 	},
@@ -98,7 +101,7 @@ var vocab_a = {
 	"14": {
 		"english_word": "Give",
 		"translation": "Memberi",
-		"example": "Annisa gives me a pen.\nAnnisa memberikanku sebuah pulpen.",
+		"example": "Annisa gives money to a beggar.\nAnnisa memberi uang ke pengemis.",
 		"input_done": false,
 		"locked": true
 	},
@@ -161,7 +164,7 @@ var vocab_a = {
 		"23": {
 		"english_word": "Run",
 		"translation": "Berlari",
-		"example": "Lisa runs at the park every weekend.\nLisa berlari di taman setiap akhir pekan.",
+		"example": "John runs at the track.\nJohn berlari di lintasan.",
 		"input_done": false,
 		"locked": true
 	},
@@ -210,7 +213,7 @@ var vocab_a = {
 		"30": {
 		"english_word": "Take",
 		"translation": "Mengambil",
-		"example": "My sister take 3 pieces of cookie.\nAdikku mengambil 3 buah kue.",
+		"example": "My sister takes 3 pieces of cookie.\nAdikku mengambil 3 buah kue.",
 		"input_done": false,
 		"locked": true
 	},
@@ -236,51 +239,51 @@ var vocab_a = {
 		"locked": true
 	},
 	"34": {
-		"english_word": "Take a Wudhu",
-		"translation": "Mengambil Wudhu",
-		"example": "I take a wudhu for prayer.\nAku mengambil wudhu untuk sholat.",
+		"english_word": "Take a Wudu",
+		"translation": "Mengambil Wudu",
+		"example": "I take a wudu for prayer.\nAku mengambil wudu untuk sholat.",
 		"input_done": false,
 		"locked": true
 	},
 	"35": {
+		"english_word": "Tidy Up",
+		"translation": "Merapihkan",
+		"example": "I tidy up my room.\nAku merapihkan kamarku.",
+		"input_done": false,
+		"locked": true
+	},
+	"36": {
 		"english_word": "Visit",
 		"translation": "Mengunjungi",
 		"example": "My family visits our grandma in the holiday.\nKeluargaku mengunjungi nenek kami di saat liburan.",
 		"input_done": false,
 		"locked": true
 	},
-	"36": {
+	"37": {
 		"english_word": "Walk",
 		"translation": "Berjalan",
 		"example": "Yanto walks to school everyday.\nYanto berjalan ke sekolah setiap hari.",
 		"input_done": false,
 		"locked": true
 	},
-	"37": {
+	"38": {
 		"english_word": "Wash",
 		"translation": "Mencuci",
 		"example": "My father washes his car.\nAyahku mencuci mobilnya.",
 		"input_done": false,
 		"locked": true
 	},
-	"38": {
+	"39": {
 		"english_word": "Wash the Hair",
 		"translation": "Keramas",
 		"example": "I wash my hair this morning.\nAku keramas pagi ini.",
 		"input_done": false,
 		"locked": true
 	},
-	"39": {
+	"40": {
 		"english_word": "Write",
 		"translation": "Menulis",
 		"example": "My friend writes a letter for me.\nTemanku menulis sebuah surat untukku.",
-		"input_done": false,
-		"locked": true
-	},
-	"40": {
-		"english_word": "Tidy Up",
-		"translation": "Merapihkan",
-		"example": "I tidy up my room.\nAku merapihkan kamarku.",
 		"input_done": false,
 		"locked": true
 	}
