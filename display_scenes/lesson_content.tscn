@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv1mhlnsv8hde"]
+[gd_scene load_steps=11 format=3 uid="uid://bv1mhlnsv8hde"]
 
 [ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="1_bt2n6"]
+[ext_resource type="Script" path="res://display_scenes/lesson_content.gd" id="1_btipm"]
 [ext_resource type="Texture2D" uid="uid://cmhxxjuv0vk34" path="res://resources/images/malkuth/1.png" id="2_w7an5"]
 [ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="3_1p2id"]
 [ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="3_bhgyj"]
 [ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="4_4c5xv"]
-[ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="5_cpyyf"]
+[ext_resource type="Texture2D" uid="uid://dmrxvc5v75nae" path="res://resources/images/ui/prev.png" id="6_xr10d"]
+[ext_resource type="Texture2D" uid="uid://41caelj3ompu" path="res://resources/images/ui/next.png" id="7_kskhl"]
+[ext_resource type="Texture2D" uid="uid://cdus6j3o2l2g8" path="res://resources/images/lesson_contents/placeholder.png" id="8_qv28g"]
+[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="9_tt0tu"]
 
 [node name="lesson_content" type="Control"]
 layout_mode = 3
@@ -14,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_btipm")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -99,7 +104,7 @@ offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
 grow_vertical = 2
-texture_normal = ExtResource("5_cpyyf")
+texture_normal = ExtResource("6_xr10d")
 stretch_mode = 3
 
 [node name="dialogue_next" type="TextureButton" parent="dialogue_box"]
@@ -115,7 +120,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("5_cpyyf")
+texture_normal = ExtResource("7_kskhl")
 stretch_mode = 3
 
 [node name="back_button" parent="." instance=ExtResource("3_1p2id")]
@@ -139,4 +144,14 @@ offset_right = 486.0
 offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_cpyyf")
+texture = ExtResource("8_qv28g")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.01
+
+[node name="bgm_player" parent="." instance=ExtResource("9_tt0tu")]
+
+[connection signal="pressed" from="dialogue_box/dialogue_prev" to="." method="_on_dialogue_prev_pressed"]
+[connection signal="pressed" from="dialogue_box/dialogue_next" to="." method="_on_dialogue_next_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
