@@ -10,7 +10,7 @@ var key = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main_dictionaries.selected_lesson = "lesson_3"
+	main_dictionaries.selected_lesson = "lesson_5"
 	dialogue.visible_characters = 0
 	$Timer.start()
 
