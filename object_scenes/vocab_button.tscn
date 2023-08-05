@@ -80,7 +80,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 script = ExtResource("1_kqjim")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." groups=["vocab_buttons"]]
 layout_mode = 2
 mouse_filter = 1
 text = "Vocabulary Word"

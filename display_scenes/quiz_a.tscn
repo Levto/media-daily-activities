@@ -1,0 +1,286 @@
+[gd_scene load_steps=16 format=3 uid="uid://d03uj8puyiaex"]
+
+[ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_dnytd"]
+[ext_resource type="Script" path="res://display_scenes/quiz_a.gd" id="1_wdqg7"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="2_o0ald"]
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="3_wyff7"]
+[ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="4_254kf"]
+[ext_resource type="Texture2D" uid="uid://bke61metu20fj" path="res://resources/images/tiphereth/1.png" id="5_04pxr"]
+[ext_resource type="Texture2D" uid="uid://bsvxr03x17ljb" path="res://resources/images/illustrations/Allow.png" id="5_ap61a"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="8_4n1br"]
+[ext_resource type="Texture2D" uid="uid://c3wcwdc336ede" path="res://resources/images/ui/Submit.png" id="8_olosi"]
+[ext_resource type="Texture2D" uid="uid://dne6xq37wx0xl" path="res://resources/images/ui/SubmitHover.png" id="9_uul8s"]
+[ext_resource type="Texture2D" uid="uid://41caelj3ompu" path="res://resources/images/ui/Next.png" id="10_34tj5"]
+[ext_resource type="Texture2D" uid="uid://bs1xbw0vqw1c8" path="res://resources/images/ui/NextHover.png" id="11_lcvdf"]
+[ext_resource type="Texture2D" uid="uid://b67ytwg2fm70q" path="res://resources/images/Answer_Correct.png" id="12_0obgb"]
+[ext_resource type="PackedScene" uid="uid://bjq8sae028fx3" path="res://object_scenes/guide_overlay.tscn" id="14_pm1us"]
+[ext_resource type="PackedScene" uid="uid://801j3ix4q6hm" path="res://object_scenes/quiz_bgm.tscn" id="14_puamd"]
+
+[node name="quiz_a" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dnytd")
+script = ExtResource("1_wdqg7")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wyff7")
+
+[node name="quiz_set" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 35.0
+offset_right = 326.0
+offset_bottom = 688.0
+grow_horizontal = 2
+
+[node name="question" type="RichTextLabel" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_254kf")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Which one is the English word
+of [Translation here]?[/center]"
+
+[node name="illustration" type="TextureRect" parent="quiz_set"]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 2
+texture = ExtResource("5_ap61a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="splitter1" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quiz_set"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="option_1" type="Button" parent="quiz_set/HBoxContainer" groups=["option_buttons"]]
+custom_minimum_size = Vector2(230, 80)
+layout_mode = 2
+text = "Option 1 Here"
+
+[node name="MarginContainer" type="MarginContainer" parent="quiz_set/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="option_2" type="Button" parent="quiz_set/HBoxContainer" groups=["option_buttons"]]
+custom_minimum_size = Vector2(230, 80)
+layout_mode = 2
+text = "Option 2 Here"
+
+[node name="spliter2" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="quiz_set"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="option_3" type="Button" parent="quiz_set/HBoxContainer2" groups=["option_buttons"]]
+custom_minimum_size = Vector2(230, 80)
+layout_mode = 2
+text = "Option 1 Here"
+
+[node name="MarginContainer" type="MarginContainer" parent="quiz_set/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="option_4" type="Button" parent="quiz_set/HBoxContainer2" groups=["option_buttons"]]
+custom_minimum_size = Vector2(230, 80)
+layout_mode = 2
+text = "Option 2 Here"
+
+[node name="splitter3" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="result" type="RichTextLabel" parent="quiz_set"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_254kf")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Correct! The english word of [Indo word here] is [English word here][/center]"
+
+[node name="result_set" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 19.0
+offset_right = 326.0
+offset_bottom = 672.0
+grow_horizontal = 2
+
+[node name="title" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.384314, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_4n1br")
+theme_override_font_sizes/font_size = 40
+text = "You Have Finished The Quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="result_content" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 204)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Here are your results:
+
+Correct Answers: 
+Incorrect Answers: 
+
+Total Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="result_set"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.568627, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="encouragement_words" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Perfect score! Congratulations and
+keep up the good work!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttons margin" type="MarginContainer" parent="result_set"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="result_set/buttons margin"]
+layout_mode = 2
+
+[node name="retake_quiz" type="Button" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Retake the Quiz"
+
+[node name="splitter" type="MarginContainer" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="retake_quiz2" type="Button" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="submit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -296.0
+offset_right = -76.0
+offset_bottom = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("8_olosi")
+texture_pressed = ExtResource("9_uul8s")
+
+[node name="next" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -296.0
+offset_right = -76.0
+offset_bottom = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("10_34tj5")
+texture_pressed = ExtResource("11_lcvdf")
+
+[node name="result_indicator" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -179.0
+offset_right = -80.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("12_0obgb")
+
+[node name="guide_overlay" parent="." instance=ExtResource("14_pm1us")]
+layout_mode = 1
+
+[node name="back_button" parent="." instance=ExtResource("2_o0ald")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 46.0
+offset_right = 159.0
+offset_bottom = 174.0
+
+[node name="quiz_bgm" parent="." instance=ExtResource("14_puamd")]
+layout_mode = 1
+offset_left = -119.0
+offset_top = 46.0
+offset_right = -55.0
+offset_bottom = 110.0
+
+[node name="tiphereth" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -596.0
+offset_top = -605.0
+offset_right = -363.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_04pxr")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="quiz_set/HBoxContainer/option_1" to="." method="_on_option_1_pressed"]
+[connection signal="button_down" from="quiz_set/HBoxContainer/option_2" to="." method="_on_option_2_button_down"]
+[connection signal="button_down" from="quiz_set/HBoxContainer2/option_3" to="." method="_on_option_3_button_down"]
+[connection signal="pressed" from="quiz_set/HBoxContainer2/option_4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="result_set/buttons margin/VBoxContainer/retake_quiz" to="." method="_on_retake_quiz_pressed"]
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="tree_exited" from="guide_overlay" to="." method="_on_guide_overlay_tree_exited"]

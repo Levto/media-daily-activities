@@ -114,7 +114,7 @@ var vocab_a = {
 	},
 		"16": {
 		"english_word": "Invite",
-		"translation": "Mengundng",
+		"translation": "Mengundang",
 		"example": "Deni invites me to his birthday party.\nDeni mengundangku ke pesta ulang tahunnya.",
 		"input_done": false,
 		"locked": true
@@ -226,7 +226,7 @@ var vocab_a = {
 	},
 	"32": {
 		"english_word": "Take a Rest",
-		"translation": "Membantu",
+		"translation": "Beristirahat",
 		"example": "I take a rest for ten minutes.\nAku beristirahat selama 10 menit.",
 		"input_done": false,
 		"locked": true

@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjq8sae028fx3"]
+
+[ext_resource type="Script" path="res://object_scenes/guide_overlay.gd" id="1_ojfla"]
+
+[node name="guide_overlay" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+script = ExtResource("1_ojfla")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quiz_guide_title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.835294, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 50
+text = "Petunjuk Quiz"
+horizontal_alignment = 1
+
+[node name="quiz_guide" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "1. Bacalah perintah pada soal yang diberikan.
+2. Pilihlah jawaban yang menurutmu benar.
+3. Tekan tombol [submit] untuk mengunci jawaban.
+4. Setelah mengunci jawaban, tekan tombol [next]
+untuk melanjutkan ke soal berikutnya.
+
+Selamat mengerjakan!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 20
+
+[node name="start_quiz" type="Button" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Mulai Quiz"
+
+[node name="tambahan" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Tekan tombol audio di kanan atas untuk mute/play lagu latar."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/start_quiz" to="." method="_on_start_quiz_pressed"]
