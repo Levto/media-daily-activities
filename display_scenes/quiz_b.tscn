@@ -1,0 +1,494 @@
+[gd_scene load_steps=28 format=3 uid="uid://c7805n7pwncxs"]
+
+[ext_resource type="Script" path="res://display_scenes/quiz_b.gd" id="2_5s4b4"]
+[ext_resource type="StyleBox" uid="uid://co3dci5pgbrj" path="res://resources/themes/basic_menu_button.tres" id="2_ofu23"]
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="3_rlqeb"]
+[ext_resource type="FontFile" uid="uid://csqw3n0sn5y1x" path="res://resources/fonts/genshin font.ttf" id="4_6rcnx"]
+[ext_resource type="StyleBox" uid="uid://xdtth0elt1kp" path="res://resources/themes/red_button.tres" id="6_rnjrg"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="6_sfdxg"]
+[ext_resource type="Texture2D" uid="uid://c3wcwdc336ede" path="res://resources/images/ui/Submit.png" id="7_jccc1"]
+[ext_resource type="Texture2D" uid="uid://dne6xq37wx0xl" path="res://resources/images/ui/SubmitHover.png" id="8_pmofr"]
+[ext_resource type="Texture2D" uid="uid://41caelj3ompu" path="res://resources/images/ui/Next.png" id="9_6qgv0"]
+[ext_resource type="Texture2D" uid="uid://bs1xbw0vqw1c8" path="res://resources/images/ui/NextHover.png" id="10_qe64r"]
+[ext_resource type="Texture2D" uid="uid://b67ytwg2fm70q" path="res://resources/images/Answer_Correct.png" id="11_ak6nc"]
+[ext_resource type="PackedScene" uid="uid://bjq8sae028fx3" path="res://object_scenes/guide_overlay.tscn" id="12_khoal"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="13_2ibo0"]
+[ext_resource type="PackedScene" uid="uid://801j3ix4q6hm" path="res://object_scenes/quiz_bgm.tscn" id="14_jxjo0"]
+[ext_resource type="Texture2D" uid="uid://bke61metu20fj" path="res://resources/images/tiphereth/1.png" id="15_2vd0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11g12"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+border_width_bottom = 5
+border_color = Color(0.388235, 0.388235, 0.388235, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljevj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.74902)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.654902, 0.141176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrqoq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.81, 0.77625, 0.729, 1)
+border_width_bottom = 5
+border_color = Color(0.85098, 0.619608, 0.466667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt78t"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.839216, 0.729412, 0.572549, 1)
+border_width_bottom = 5
+border_color = Color(0.596078, 0.407843, 0.278431, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5s1a6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_pr422"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcogr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.935, 0.85, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fr83"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.85, 0.79475, 0.7225, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mi50r"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.70125, 0.6375, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1mxu"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_qurpt"]
+Button/colors/font_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/font_disabled_color = Color(0.33, 0.33, 0.33, 1)
+Button/colors/font_focus_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/font_hover_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/font_hover_pressed_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/font_outline_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/font_pressed_color = Color(0.2, 0.180392, 0.164706, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/outline_size = 1
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("4_6rcnx")
+Button/styles/disabled = SubResource("StyleBoxFlat_11g12")
+Button/styles/focus = SubResource("StyleBoxFlat_ljevj")
+Button/styles/hover = SubResource("StyleBoxFlat_qrqoq")
+Button/styles/normal = ExtResource("2_ofu23")
+Button/styles/pressed = SubResource("StyleBoxFlat_yt78t")
+Fonts/fonts/large = ExtResource("4_6rcnx")
+Fonts/fonts/normal = ExtResource("4_6rcnx")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("4_6rcnx")
+Label/styles/normal = SubResource("StyleBoxEmpty_5s1a6")
+VScrollBar/icons/decrement = SubResource("ImageTexture_pr422")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_pr422")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_pr422")
+VScrollBar/icons/increment = SubResource("ImageTexture_pr422")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_pr422")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_pr422")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_mcogr")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_7fr83")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_mi50r")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_r1mxu")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_ljevj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgi4a"]
+bg_color = Color(1, 0.25098, 0.25098, 1)
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[node name="quiz_b" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qurpt")
+script = ExtResource("2_5s4b4")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_rlqeb")
+
+[node name="quiz_set" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.5
+offset_top = -690.0
+offset_right = 324.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="question" type="RichTextLabel" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6rcnx")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Which one is the English word
+of [Translation here]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="your_answer_title" type="Label" parent="quiz_set"]
+layout_mode = 2
+text = "Your Answer:"
+horizontal_alignment = 1
+
+[node name="inputed_text_display" type="Label" parent="quiz_set"]
+custom_minimum_size = Vector2(500, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.933333, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_sfdxg")
+theme_override_font_sizes/font_size = 35
+text = "Press A Button Below To Write The Word.."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="splitter1" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quiz_set"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="0" type="Button" parent="quiz_set/HBoxContainer" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "in my bedroom"
+
+[node name="1" type="Button" parent="quiz_set/HBoxContainer" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "wake up"
+
+[node name="2" type="Button" parent="quiz_set/HBoxContainer" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "in the morning"
+
+[node name="spliter2" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="quiz_set"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="3" type="Button" parent="quiz_set/HBoxContainer2" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "in my bedroom"
+
+[node name="4" type="Button" parent="quiz_set/HBoxContainer2" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "wake up"
+
+[node name="5" type="Button" parent="quiz_set/HBoxContainer2" groups=["word_button"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "in the morning"
+
+[node name="splitter3" type="MarginContainer" parent="quiz_set"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 5
+
+[node name="clear_sentence" type="Button" parent="quiz_set/splitter3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("6_rnjrg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xgi4a")
+text = "Clear"
+
+[node name="result" type="RichTextLabel" parent="quiz_set"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6rcnx")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Result text here"
+fit_content = true
+scroll_active = false
+
+[node name="result_set" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 19.0
+offset_right = 326.0
+offset_bottom = 672.0
+grow_horizontal = 2
+
+[node name="title" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.384314, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_sfdxg")
+theme_override_font_sizes/font_size = 40
+text = "You Have Finished The Quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="result_content" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 204)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Here are your results:
+
+Correct Answers: 
+Incorrect Answers: 
+
+Total Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="result_set"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.568627, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="encouragement_words" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Perfect score! Congratulations and
+keep up the good work!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttons margin" type="MarginContainer" parent="result_set"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="result_set/buttons margin"]
+layout_mode = 2
+
+[node name="retake_quiz" type="Button" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Retake the Quiz"
+
+[node name="splitter" type="MarginContainer" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="retake_quiz2" type="Button" parent="result_set/buttons margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="next" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -296.0
+offset_right = -76.0
+offset_bottom = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9_6qgv0")
+texture_pressed = ExtResource("10_qe64r")
+
+[node name="submit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -296.0
+offset_right = -76.0
+offset_bottom = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("7_jccc1")
+texture_pressed = ExtResource("8_pmofr")
+
+[node name="result_indicator" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -179.0
+offset_right = -80.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("11_ak6nc")
+
+[node name="guide_overlay" parent="." instance=ExtResource("12_khoal")]
+visible = false
+layout_mode = 1
+
+[node name="back_button" parent="." instance=ExtResource("13_2ibo0")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 46.0
+offset_right = 159.0
+offset_bottom = 174.0
+
+[node name="quiz_bgm" parent="." instance=ExtResource("14_jxjo0")]
+layout_mode = 1
+offset_left = -119.0
+offset_top = 46.0
+offset_right = -55.0
+offset_bottom = 110.0
+
+[node name="tiphereth" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -596.0
+offset_top = -605.0
+offset_right = -363.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("15_2vd0w")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="quiz_set/splitter3/clear_sentence" to="." method="_on_clear_sentence_pressed"]
+[connection signal="pressed" from="result_set/buttons margin/VBoxContainer/retake_quiz" to="." method="_on_retake_quiz_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]
+[connection signal="tree_exited" from="guide_overlay" to="." method="_on_guide_overlay_tree_exited"]

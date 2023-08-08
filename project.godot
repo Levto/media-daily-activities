@@ -28,7 +28,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg", "res://addons/cross_origin_isolation/plugin.cfg")
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
 
 [input_devices]
 

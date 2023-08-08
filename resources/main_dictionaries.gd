@@ -6,7 +6,7 @@ var bgm_playback
 
 var selected_target: int = 1
 
-var vocab_a = {
+const vocab_a = {
 	"1": {
 		"english_word": "Allow",
 		"translation": "Mengizinkan",
@@ -292,7 +292,7 @@ var vocab_a = {
 #lesson content data
 var selected_lesson
 
-var lesson_vn_resource = {
+const lesson_vn_resource = {
 	"lesson_1" = {
 		"1" = {
 			"text": "Halo! Perkenalkan namaku Ellie, dan selamat datang di [color=orange]Ellie's English Class[/color]. Di sini aku akan memandu teman-teman untuk belajar Bahasa Inggris bersama. Mari kita mulai pelajaran kita hari ini. [color=aquamarine](Tekan tombol panah di sebelah kanan)[/color]",
