@@ -171,7 +171,7 @@ func _on_next_pressed():
 	refresh_displayed_text()
 	
 	#change this to 10 later after you add the contents
-	if answered_question_count == 4:
+	if answered_question_count == 10:
 		load_results()
 		quiz_set.visible = false
 		result_set.visible = true
