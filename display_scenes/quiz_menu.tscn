@@ -1,0 +1,188 @@
+[gd_scene load_steps=9 format=3 uid="uid://fqk1hjfm8ah8"]
+
+[ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_23q71"]
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="2_4wpb0"]
+[ext_resource type="Script" path="res://display_scenes/quiz_menu.gd" id="2_xsel1"]
+[ext_resource type="Texture2D" uid="uid://bke61metu20fj" path="res://resources/images/tiphereth/1.png" id="3_u42pv"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="4_bhiqm"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="5_vu5og"]
+[ext_resource type="Texture2D" uid="uid://c42gqb5fgqmdp" path="res://resources/images/9patch.png" id="6_jtapv"]
+[ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="6_pq4s7"]
+
+[node name="quiz_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_23q71")
+script = ExtResource("2_xsel1")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_4wpb0")
+
+[node name="tiphereth" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -596.0
+offset_top = -605.0
+offset_right = -363.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_u42pv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 97.0
+offset_right = 300.0
+offset_bottom = 590.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.466667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_bhiqm")
+theme_override_font_sizes/font_size = 60
+text = "Quiz List
+"
+horizontal_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+texture = ExtResource("6_jtapv")
+patch_margin_left = 138
+patch_margin_top = 138
+patch_margin_right = 153
+patch_margin_bottom = 155
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -171.0
+offset_right = 255.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="quiz_1" type="VBoxContainer" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Find the Word!
+"
+
+[node name="subtitle" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Find the English word among the options
+"
+autowrap_mode = 3
+
+[node name="locked_text" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "(unlocked after clearing the Library)"
+autowrap_mode = 3
+
+[node name="button_margin" type="MarginContainer" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1"]
+layout_mode = 2
+theme_override_constants/margin_right = 100
+
+[node name="quiz_a" type="Button" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin" groups=["start_button"]]
+visible = false
+layout_mode = 2
+text = "Start the Quiz"
+
+[node name="library" type="Button" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin"]
+layout_mode = 2
+text = "To Library"
+
+[node name="quiz_2" type="VBoxContainer" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Arrange the Sentence"
+
+[node name="subtitle" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Arrange the provided words into a sentence
+"
+autowrap_mode = 3
+
+[node name="locked_text" type="Label" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "(unlocked after finishing all Classes)"
+autowrap_mode = 3
+
+[node name="button_margin" type="MarginContainer" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2"]
+layout_mode = 2
+theme_override_constants/margin_right = 100
+
+[node name="quiz_b" type="Button" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin" groups=["start_button"]]
+layout_mode = 2
+text = "Start the Quiz"
+
+[node name="class" type="Button" parent="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin"]
+layout_mode = 2
+text = "To Class"
+
+[node name="back_button" parent="." instance=ExtResource("5_vu5og")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 178.0
+offset_bottom = 168.0
+target_scene = "main_menu"
+
+[node name="bgm_toggle" parent="." instance=ExtResource("6_pq4s7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
+
+[connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin/quiz_a" to="." method="_on_quiz_a_pressed"]
+[connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin/library" to="." method="_on_library_pressed"]
+[connection signal="button_down" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin/quiz_b" to="." method="_on_quiz_b_button_down"]
+[connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin/class" to="." method="_on_class_pressed"]

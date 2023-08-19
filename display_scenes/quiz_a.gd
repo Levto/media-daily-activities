@@ -40,7 +40,10 @@ func _ready():
 	submit.visible = false
 	next.visible = false
 	result_indicator.visible = false
+	$guide_overlay.visible = true
 	
+	sfx_player.stream = load("res://resources/sfx/RoundStart.wav")
+	sfx_player.play()
 	load_question_set("")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,13 +85,14 @@ func load_question_set(prev_question):
 	option_3.text = question_set[2]
 	option_4.text = question_set[3]
 	
-
+	$quiz_set/question_number.text = "Question No. " + str(answered_question_count + 1)
 func load_results():
 	var score : float
 	score = correct_answer_count * 100 / answered_question_count
 	print(score)
 	$result_set/result_content.text = "Here are your results:\n\nCorrect Answers: " + str(correct_answer_count) + "\nIncorrect Answers: " + str(incorrect_answer_count) + "\n\nTotal Score:"
 	$result_set/score.text = str(score)
+	$result_set/name.text = main_dictionaries.player_name
 	
 	if score >= 100:
 		tiphereth.texture = load("res://resources/images/tiphereth/2.png")
@@ -187,3 +191,7 @@ func _on_guide_overlay_tree_exited():
 	quiz_set.visible = true
 	sfx_player.stream = load("res://resources/sfx/Finger_Snapping.wav")
 	sfx_player.play()
+
+
+func _on_retake_quiz_2_pressed():
+	get_tree().change_scene_to_file("res://display_scenes/quiz_menu.tscn")

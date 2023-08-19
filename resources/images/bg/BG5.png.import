@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjsefn1yjpeb"
-path="res://.godot/imported/Back_down.png-d70f7076ff23d57cc5df3869288f005a.ctex"
+uid="uid://f0mnarbh2rnr"
+path="res://.godot/imported/BG5.png-00e6e02835d63e3ed14759563fa2ec18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/ui/Back_down.png"
-dest_files=["res://.godot/imported/Back_down.png-d70f7076ff23d57cc5df3869288f005a.ctex"]
+source_file="res://resources/images/bg/BG5.png"
+dest_files=["res://.godot/imported/BG5.png-00e6e02835d63e3ed14759563fa2ec18.ctex"]
 
 [params]
 

@@ -29,13 +29,16 @@ func _ready():
 	result_text.visible = false
 	next.visible = false
 	submit.visible = false
+	sfx_player.stream = load("res://resources/sfx/RoundStart.wav")
+	sfx_player.play()
 	for word_button in get_tree().get_nodes_in_group("word_button"):
 		word_button.pressed.connect(word_button_pressed.bind(word_button))
 	init_question_set()
 	print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
 	load_question_set()
 	print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
-
+	
+	$quiz_set/question_number.text = "Question No. " + str(answered_question_count + 1)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):		
 	for word_button in get_tree().get_nodes_in_group("word_button"):
@@ -53,6 +56,7 @@ func load_results():
 	print(score)
 	$result_set/result_content.text = "Here are your results:\n\nCorrect Answers: " + str(correct_answer_count) + "\nIncorrect Answers: " + str(incorrect_answer_count) + "\n\nTotal Score:"
 	$result_set/score.text = str(score)
+	$result_set/name.text = main_dictionaries.player_name
 	
 	if score >= 100:
 		tiphereth.texture = load("res://resources/images/tiphereth/2.png")
@@ -96,6 +100,8 @@ func load_question_set():
 			word_button.visible = false
 		else:
 			word_button.visible = true
+		
+	$quiz_set/question_number.text = "Question No. " + str(answered_question_count + 1)
 	
 	question_text.text = "[center]Arrange these words into this sentence:\n[color=yellow]" + quiz_resources.quiz_b[question_set[answered_question_count]].translation + "[/color][/center]"
 
@@ -107,7 +113,7 @@ func refresh_displayed_text():
 			inputed_text_display.text += word + " "
 		
 	if inputed_text_display.text == "":
-		inputed_text_display.text = "Press A Button Below To Write The Word.."
+		inputed_text_display.text = "Press Any Button Below To Write The Word.."
 	
 func word_button_pressed(word_button):
 	inputed_words.append(word_button.text)
@@ -197,3 +203,7 @@ func _on_guide_overlay_tree_exited():
 	sfx_player.play()
 	
 	quiz_set.visible = true
+
+
+func _on_retake_quiz_2_pressed():
+	get_tree().change_scene_to_file("res://display_scenes/quiz_menu.tscn")

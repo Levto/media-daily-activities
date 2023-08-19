@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8b5xba5c52n0"]
+
+[ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_ufdr1"]
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="2_ewu5y"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="3_pq4a0"]
+[ext_resource type="Texture2D" uid="uid://c4bhnunmprhym" path="res://resources/images/LOGO-UPI 128x120.png" id="4_hywkg"]
+[ext_resource type="Texture2D" uid="uid://duuyfqbv53mof" path="res://resources/images/LOGO-TEKPEND 128x128.png" id="5_wqvnr"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="6_jrdjb"]
+[ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="7_brhj2"]
+
+[node name="about" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ufdr1")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ewu5y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 41.0
+offset_right = 375.0
+offset_bottom = 644.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.466667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_pq4a0")
+theme_override_font_sizes/font_size = 60
+text = "About"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Media pembelajaran Bahasa Inggris
+materi Daily Activities
+untuk kelas V SD
+oleh Ahnaf Arzaqu Zaki J.
+
+
+Dikembangkan dengan aplikasi Godot Game Engine 4.0
+
+
+Media ini dikembangkan dalam rangka
+penelitian skripsi.
+
+Program Studi Teknologi Pendidikan
+Universitas Pendidikan Indonesia
+2023"
+horizontal_alignment = 1
+
+[node name="upi" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+offset_top = -220.0
+offset_right = 260.0
+offset_bottom = -95.0
+grow_vertical = 0
+texture = ExtResource("4_hywkg")
+
+[node name="tekpend" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -265.0
+offset_top = -220.0
+offset_right = -137.0
+offset_bottom = -95.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_wqvnr")
+
+[node name="back_button" parent="." instance=ExtResource("6_jrdjb")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 178.0
+offset_bottom = 168.0
+target_scene = "main_menu"
+
+[node name="bgm_toggle" parent="." instance=ExtResource("7_brhj2")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1

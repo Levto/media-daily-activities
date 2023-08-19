@@ -1,8 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://6dtga52dhecl"]
+[gd_scene load_steps=14 format=3 uid="uid://6dtga52dhecl"]
 
 [ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="1_1ymll"]
-[ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="1_qvd3c"]
-[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="3_d45sn"]
+[ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_jse3u"]
+[ext_resource type="Script" path="res://display_scenes/main_menu.gd" id="2_sf6dt"]
+[ext_resource type="StyleBox" uid="uid://bqmfs3g1vlnl7" path="res://resources/themes/main_menu_button.tres" id="4_pwtfe"]
+[ext_resource type="Texture2D" uid="uid://c7s3hxrv5egpc" path="res://resources/images/title.png" id="4_vaqvb"]
+[ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="6_xhyfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b46rj"]
+bg_color = Color(0.996094, 0.929688, 0.847656, 1)
+border_width_bottom = 10
+border_color = Color(0.360784, 0.705882, 0.968627, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6m10"]
+bg_color = Color(0.839216, 0.784314, 0.713726, 1)
+border_width_bottom = 10
+border_color = Color(0.402344, 0.746094, 0.277344, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_878n5"]
+bg_color = Color(1, 0.933333, 0.85098, 1)
+border_width_bottom = 10
+border_color = Color(1, 0.583333, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_462q1"]
+bg_color = Color(1, 0.933333, 0.85098, 1)
+border_width_bottom = 10
+border_color = Color(0.74902, 0.278431, 0.278431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty015"]
+bg_color = Color(0.996094, 0.929688, 0.847656, 1)
+border_width_bottom = 10
+border_color = Color(0.929412, 0.345098, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1l53"]
+bg_color = Color(1, 0.933333, 0.85098, 1)
+border_width_bottom = 10
+border_color = Color(0.403922, 0.74902, 0.278431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d7jd"]
+bg_color = Color(0.996094, 0.929688, 0.847656, 1)
+border_width_bottom = 10
+border_color = Color(0.501961, 0.929412, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,6 +77,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jse3u")
+script = ExtResource("2_sf6dt")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -29,11 +97,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="icon_test" type="TextureRect" parent="margin_container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="margin_container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="icon_test" type="TextureRect" parent="margin_container/VBoxContainer"]
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_qvd3c")
+texture = ExtResource("4_vaqvb")
 stretch_mode = 3
 
-[node name="bgm_player" parent="." instance=ExtResource("3_d45sn")]
+[node name="HBoxContainer" type="HBoxContainer" parent="margin_container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="start" type="Button" parent="margin_container/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_pwtfe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b46rj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6m10")
+theme_override_styles/focus = SubResource("StyleBoxFlat_878n5")
+text = "Start"
+
+[node name="quiz" type="Button" parent="margin_container/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_462q1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ty015")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6m10")
+theme_override_styles/focus = SubResource("StyleBoxFlat_878n5")
+text = "Quiz"
+
+[node name="help" type="Button" parent="margin_container/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h1l53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3d7jd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6m10")
+theme_override_styles/focus = SubResource("StyleBoxFlat_878n5")
+text = "Help"
+
+[node name="bgm_toggle" parent="." instance=ExtResource("6_xhyfg")]
+layout_mode = 1
+offset_left = -121.0
+offset_right = -57.0
+
+[node name="about" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -63.0
+offset_right = -30.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "i"
+
+[connection signal="pressed" from="margin_container/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="margin_container/VBoxContainer/HBoxContainer/quiz" to="." method="_on_quiz_pressed"]
+[connection signal="pressed" from="margin_container/VBoxContainer/HBoxContainer/help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="about" to="." method="_on_about_pressed"]

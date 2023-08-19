@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bthyjx2tbvt7y"]
+
+[ext_resource type="Texture2D" uid="uid://ckdnlgbw8t1pg" path="res://resources/images/ui/Audio_on.png" id="1_gsntn"]
+[ext_resource type="Texture2D" uid="uid://cd4pcs7tix2om" path="res://resources/images/ui/Audio_mute.png" id="2_l15gv"]
+[ext_resource type="Script" path="res://object_scenes/bgm_toggle.gd" id="3_4cu57"]
+[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="4_yjn26"]
+
+[node name="bgm_toggle" type="TextureButton"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 34.0
+offset_right = -48.0
+offset_bottom = 98.0
+grow_horizontal = 0
+toggle_mode = true
+texture_normal = ExtResource("1_gsntn")
+texture_pressed = ExtResource("2_l15gv")
+script = ExtResource("3_4cu57")
+
+[node name="bgm_player" parent="." instance=ExtResource("4_yjn26")]
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="toggled" from="." to="bgm_player" method="_on_bgm_toggle_toggled"]

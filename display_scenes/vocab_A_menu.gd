@@ -11,6 +11,7 @@ extends Control
 @onready var next_buton = $margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container/prev_next_buttons/next
 @onready var wrong_warning = $margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container/wrong_warning
 @onready var word_audio = $word_audio
+@onready var sfx_player = $sfx_player
 
 var word_change_checker
 
@@ -64,25 +65,41 @@ func load_vocab():
 func _on_submit_button_pressed():
 	var check_input = input_text.get_text().matchn(english_word.text)
 	
+	sfx_player.stream = load("res://resources/sfx/Card_Apply.wav")
+	sfx_player.play()
+	
 	if check_input:
 		input_text.clear()
 		wrong_warning.visible = false
 		main_dictionaries.vocab_a[str(current_word_number)].input_done = true
 		if current_word_number < main_dictionaries.vocab_a.size():
 			main_dictionaries.vocab_a[str(current_word_number + 1)].locked = false
+		
+		#check if all vocabuaries has been input done and library is finished
+		main_dictionaries.library_finished = main_dictionaries.check_library_finished()
+		print(main_dictionaries.library_finished)
+		
 	else:
 		wrong_warning.visible = true
 
 
 func _on_previous_pressed():
+	sfx_player.stream = load("res://resources/sfx/Card_Over.wav")
+	sfx_player.play()
 	main_dictionaries.selected_target -= 1
 
 
 func _on_next_pressed():
+	sfx_player.stream = load("res://resources/sfx/Card_Over.wav")
+	sfx_player.play()
 	main_dictionaries.selected_target += 1
 
 func _on_text_input_text_submitted(new_text):
 	var check_input = new_text.matchn(english_word.text)
+	
+	sfx_player.stream = load("res://resources/sfx/Card_Apply.wav")
+	sfx_player.play()
+	
 	#input_text.get_text().matchn(english_word.text)
 	
 	if check_input:

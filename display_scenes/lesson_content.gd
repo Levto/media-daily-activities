@@ -5,12 +5,14 @@ extends Control
 @onready var content = $content
 @onready var next = $dialogue_box/dialogue_next
 @onready var prev = $dialogue_box/dialogue_prev
+@onready var sfx_player = $sfx_player
 
 var key = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main_dictionaries.selected_lesson = "lesson_5"
+	if main_dictionaries.selected_lesson == null:
+		main_dictionaries.selected_lesson = "lesson_1"
 	dialogue.visible_characters = 0
 	$Timer.start()
 
@@ -41,11 +43,34 @@ func _on_dialogue_prev_pressed():
 	key -= 1
 	dialogue.visible_characters = 0
 	$Timer.start()
+	
+	sfx_player.stream = load("res://resources/sfx/Card_Over.wav")
+	sfx_player.play()
 
 func _on_dialogue_next_pressed():
-	key += 1
-	dialogue.visible_characters = 0
-	$Timer.start()
+	var dialogue_length = dialogue.get_total_character_count()
+	var lesson_length = main_dictionaries.lesson_vn_resource[main_dictionaries.selected_lesson].size()
+	
+	if key == lesson_length - 1:
+		#check if lesson finished checker has input the current lesson or not, if not, then append it
+		#then check if all lesson has been finished or not
+		if not main_dictionaries.lesson_finished_checker.has(main_dictionaries.selected_lesson):
+			main_dictionaries.lesson_finished_checker.append(main_dictionaries.selected_lesson)
+		main_dictionaries.lesson_finished = main_dictionaries.check_lesson_finished()
+		print(main_dictionaries.lesson_finished)
+		
+	if dialogue.visible_characters != dialogue_length:
+		sfx_player.stream = load("res://resources/sfx/Card_Over.wav")
+		sfx_player.play()
+	
+		dialogue.visible_characters = dialogue_length
+	else:
+		sfx_player.stream = load("res://resources/sfx/Card_Apply.wav")
+		sfx_player.play()
+	
+		key += 1
+		dialogue.visible_characters = 0
+		$Timer.start()
 
 func _on_timer_timeout():
 	var dialogue_length = dialogue.get_total_character_count()

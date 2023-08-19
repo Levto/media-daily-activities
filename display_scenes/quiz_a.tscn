@@ -44,6 +44,11 @@ offset_right = 326.0
 offset_bottom = 688.0
 grow_horizontal = 2
 
+[node name="question_number" type="Label" parent="quiz_set"]
+layout_mode = 2
+text = "Question No. 1"
+horizontal_alignment = 1
+
 [node name="question" type="RichTextLabel" parent="quiz_set"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -117,7 +122,6 @@ bbcode_enabled = true
 text = "[center]Correct! The english word of [Indo word here] is [English word here][/center]"
 
 [node name="result_set" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -129,7 +133,7 @@ offset_bottom = 672.0
 grow_horizontal = 2
 
 [node name="title" type="Label" parent="result_set"]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 0.384314, 0, 1)
@@ -137,6 +141,14 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_4n1br")
 theme_override_font_sizes/font_size = 40
 text = "You Have Finished The Quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="result_set"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "your_name_here"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -187,7 +199,7 @@ layout_mode = 2
 text = "Retake the Quiz"
 
 [node name="splitter" type="MarginContainer" parent="result_set/buttons margin/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="retake_quiz2" type="Button" parent="result_set/buttons margin/VBoxContainer"]
@@ -243,21 +255,21 @@ grow_vertical = 2
 texture = ExtResource("12_0obgb")
 
 [node name="guide_overlay" parent="." instance=ExtResource("14_pm1us")]
+visible = false
 layout_mode = 1
 
 [node name="back_button" parent="." instance=ExtResource("2_o0ald")]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 46.0
-offset_right = 159.0
-offset_bottom = 174.0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 178.0
+offset_bottom = 168.0
+target_scene = "quiz_menu"
 
 [node name="quiz_bgm" parent="." instance=ExtResource("14_puamd")]
 layout_mode = 1
-offset_left = -119.0
-offset_top = 46.0
-offset_right = -55.0
-offset_bottom = 110.0
+offset_left = -110.0
+offset_right = -46.0
 
 [node name="tiphereth" type="TextureRect" parent="."]
 layout_mode = 1
@@ -281,6 +293,7 @@ texture = ExtResource("5_04pxr")
 [connection signal="button_down" from="quiz_set/HBoxContainer2/option_3" to="." method="_on_option_3_button_down"]
 [connection signal="pressed" from="quiz_set/HBoxContainer2/option_4" to="." method="_on_option_4_pressed"]
 [connection signal="pressed" from="result_set/buttons margin/VBoxContainer/retake_quiz" to="." method="_on_retake_quiz_pressed"]
+[connection signal="pressed" from="result_set/buttons margin/VBoxContainer/retake_quiz2" to="." method="_on_retake_quiz_2_pressed"]
 [connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
 [connection signal="tree_exited" from="guide_overlay" to="." method="_on_guide_overlay_tree_exited"]

@@ -1,12 +1,16 @@
 # Stores all dictionaries for vocabularies
 extends Node
 
+var player_name = "Ahnaf Arzaqu Zaki Jumadi"
+
 #bgm playback getter
 var bgm_playback
+var bgm_playing = true
 
+#vocab menu selected word getter
 var selected_target: int = 1
 
-const vocab_a = {
+var vocab_a = {
 	"1": {
 		"english_word": "Allow",
 		"translation": "Mengizinkan",
@@ -288,6 +292,8 @@ const vocab_a = {
 		"locked": true
 	}
 }
+
+var library_finished = false
 
 #lesson content data
 var selected_lesson
@@ -744,11 +750,33 @@ const lesson_vn_resource = {
 		}
 	}
 }
+
+var lesson_finished_checker= []
+var lesson_finished_indicator = ["lesson_1", "lesson_2", "lesson_3", "lesson_4", "lesson_5"]
+var lesson_finished = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+#check if all keys in vocab_a has input_done true
+func check_library_finished():
+	for key in vocab_a:
+		if not vocab_a[key].input_done:
+			library_finished = false
+			return false
+	library_finished = true
+	return true
+
+func check_lesson_finished():
+	for lesson in lesson_finished_indicator:
+		if not lesson_finished_checker.has(lesson):
+			lesson_finished = false
+			return false
+	lesson_finished = true
+	return true

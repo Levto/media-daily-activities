@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://kahd1mq4dp30"]
 
 [ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_u0blt"]
+[ext_resource type="Texture2D" uid="uid://f0mnarbh2rnr" path="res://resources/images/bg/BG5.png" id="3_qhri8"]
 [ext_resource type="Script" path="res://display_scenes/vocab_A_menu.gd" id="3_rmgsl"]
-[ext_resource type="Texture2D" uid="uid://neqylpghvw53" path="res://resources/images/bg/BG2.png" id="4_aftt8"]
 [ext_resource type="PackedScene" uid="uid://btdusi7m3ilte" path="res://object_scenes/vocab_button.tscn" id="4_dykg8"]
 [ext_resource type="Texture2D" uid="uid://cl2bgqcxyan77" path="res://icon.svg" id="5_66ji3"]
-[ext_resource type="Texture2D" uid="uid://ckdnlgbw8t1pg" path="res://resources/images/ui/Audio_on.png" id="5_x45au"]
+[ext_resource type="Texture2D" uid="uid://wr5fx08t25j4" path="res://icon.png" id="7_npbhk"]
+[ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="8_mglsy"]
 [ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="8_nih1d"]
-[ext_resource type="PackedScene" uid="uid://cl8uwe21hwh64" path="res://object_scenes/bgm_player.tscn" id="9_10g3w"]
 
 [node name="vocab_A_menu" type="Control"]
 layout_mode = 3
@@ -35,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_aftt8")
+texture = ExtResource("3_qhri8")
 
 [node name="margin_container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -247,6 +247,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="english_word" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer"]
@@ -256,11 +257,10 @@ text = "Vocabulary Word"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="word_audio" type="TextureButton" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer"]
+[node name="word_audio" type="Button" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-texture_normal = ExtResource("5_x45au")
-stretch_mode = 5
+text = "Listen"
 
 [node name="translation" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
 layout_mode = 2
@@ -281,7 +281,6 @@ texture = ExtResource("5_66ji3")
 stretch_mode = 5
 
 [node name="word_input_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
-visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container"]
@@ -319,6 +318,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="contents_container" type="VBoxContainer" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container"]
+visible = false
 layout_mode = 2
 
 [node name="example_label" type="Label" parent="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/contents_container"]
@@ -356,31 +356,41 @@ text = "Next"
 
 [node name="back_button" parent="." instance=ExtResource("8_nih1d")]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 38.0
-offset_right = 176.0
-offset_bottom = 166.0
-target_scene = "main_menu"
+offset_left = 45.0
+offset_top = 40.0
+offset_right = 173.0
+offset_bottom = 168.0
+target_scene = "start_menu"
 
 [node name="unlocker" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -78.0
-offset_top = 18.0
-offset_right = -31.0
-offset_bottom = 65.0
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -65.0
+offset_right = -26.0
+offset_bottom = -18.0
 grow_horizontal = 0
-texture_normal = ExtResource("5_66ji3")
+grow_vertical = 0
+texture_normal = ExtResource("7_npbhk")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="word_audio" type="AudioStreamPlayer2D" parent="."]
 volume_db = 10.0
 
-[node name="bgm_player" parent="." instance=ExtResource("9_10g3w")]
+[node name="bgm_toggle" parent="." instance=ExtResource("8_mglsy")]
+layout_mode = 1
+offset_left = -110.0
+offset_top = 40.0
+offset_right = -46.0
+offset_bottom = 104.0
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/HBoxContainer/word_audio" to="." method="_on_word_audio_pressed"]
 [connection signal="text_submitted" from="margin_container/h_box_container/vocab_resources/margin_container/v_box_container/word_input_container/h_box_container/MarginContainer/text_input" to="." method="_on_text_input_text_submitted"]

@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="media-daily-activities"
-run/main_scene="res://display_scenes/quiz_a.tscn"
+run/main_scene="res://display_scenes/input_player_name.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+config/icon="res://icon.png"
 
 [autoload]
 

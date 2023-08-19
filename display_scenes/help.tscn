@@ -1,0 +1,221 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddjb8vg0vdvoq"]
+
+[ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_jiudr"]
+[ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="2_n1k1p"]
+[ext_resource type="Script" path="res://display_scenes/help.gd" id="2_qd6fi"]
+[ext_resource type="FontFile" uid="uid://dfsoeknv4d0v4" path="res://resources/fonts/LemonMilkitalic.otf" id="3_edgrf"]
+[ext_resource type="Texture2D" uid="uid://chtxmf12ukcfw" path="res://resources/images/help_ss/library_ss.png" id="4_jb7jy"]
+[ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="4_rkena"]
+[ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="5_aelnh"]
+[ext_resource type="Texture2D" uid="uid://b2dbt1to1k8e8" path="res://resources/images/help_ss/class_ss.png" id="6_1du3v"]
+[ext_resource type="Texture2D" uid="uid://84538vekc63l" path="res://resources/images/help_ss/quiz_ss.png" id="7_sykqc"]
+
+[node name="help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jiudr")
+script = ExtResource("2_qd6fi")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n1k1p")
+
+[node name="content_set" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 14.0
+offset_right = 400.0
+offset_bottom = 661.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="content_set"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.384314, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_edgrf")
+theme_override_font_sizes/font_size = 80
+text = "Help"
+horizontal_alignment = 1
+
+[node name="content_1" type="Label" parent="content_set" groups=["content"]]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Penjelasan singkat menu dalam media pembelajaran ini:
+
+Start: Mulai aplikasi dan masuk ke materi pelajaran Bahasa Inggris
+Library: Konten materi kosakata Daily Activity
+Class: Konten materi menyusun kalimat Simple Present Tense
+Quiz: Konten quiz untuk latihan siswa. Konten ini akan terkunci sebelum prasyaratnya terpenuhi.
+
+Tekan tombol angka di samping untuk menampilkan petunjuk lebih lanjut."
+autowrap_mode = 3
+
+[node name="content_2" type="VBoxContainer" parent="content_set" groups=["content"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="title" type="Label" parent="content_set/content_2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Library"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="content_set/content_2"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ss" type="TextureRect" parent="content_set/content_2/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+texture = ExtResource("4_jb7jy")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="text\'" type="Label" parent="content_set/content_2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Di sini akan tersedia daftar kosakata tentang Daily Activities. Tetapi, kosakata tersebut masih terkunci. Untuk membuka kosakata, tulislah kata yang ditampilkan pada kolom yang tersedia."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="content_3" type="VBoxContainer" parent="content_set" groups=["content"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="title" type="Label" parent="content_set/content_3"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Class"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="content_set/content_3"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ss" type="TextureRect" parent="content_set/content_3/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+texture = ExtResource("6_1du3v")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="text\'" type="Label" parent="content_set/content_3"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Di sini akan tersedia materi tentang cara menyusun kalimat simple present tense. Gunakan tombol panah untuk navigasi materi yang disampaikan oleh Ellie."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="content_4" type="VBoxContainer" parent="content_set" groups=["content"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="title" type="Label" parent="content_set/content_4"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Quiz"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="content_set/content_4"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ss" type="TextureRect" parent="content_set/content_4/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+texture = ExtResource("7_sykqc")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="text\'" type="Label" parent="content_set/content_4"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Di sini akan tersedia quiz berdasarkan materi yang disampaikan dalam media ini. Terdapat 2 quiz yang dapat dibuka dengan menyelesaikan konten Library dan Class. Bacalah petunjuk pengerjaan pada setiap quiz sebelum memulai quiz."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="button" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -205.0
+offset_right = 190.0
+offset_bottom = 205.0
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="content_1" type="Button" parent="button" groups=["nav_button"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "1"
+
+[node name="content_2" type="Button" parent="button" groups=["nav_button"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "2"
+
+[node name="content_3" type="Button" parent="button" groups=["nav_button"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "3"
+
+[node name="content_4" type="Button" parent="button" groups=["nav_button"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "4"
+
+[node name="back_button" parent="." instance=ExtResource("4_rkena")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 178.0
+offset_bottom = 168.0
+target_scene = "main_menu"
+
+[node name="bgm_toggle" parent="." instance=ExtResource("5_aelnh")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
