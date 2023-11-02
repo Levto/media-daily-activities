@@ -30,6 +30,6 @@ func check_name(name):
 		name_edit.clear()
 	else:
 		main_dictionaries.player_name = name
-		print(main_dictionaries.player_name)
+		#print(main_dictionaries.player_name)
 		get_tree().change_scene_to_file("res://display_scenes/main_menu.tscn")
 	

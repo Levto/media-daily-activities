@@ -34,9 +34,9 @@ func _ready():
 	for word_button in get_tree().get_nodes_in_group("word_button"):
 		word_button.pressed.connect(word_button_pressed.bind(word_button))
 	init_question_set()
-	print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
+	#print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
 	load_question_set()
-	print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
+	#print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
 	
 	$quiz_set/question_number.text = "Question No. " + str(answered_question_count + 1)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,7 +53,7 @@ func _process(delta):
 func load_results():
 	var score : float
 	score = correct_answer_count * 100 / answered_question_count
-	print(score)
+	#print(score)
 	$result_set/result_content.text = "Here are your results:\n\nCorrect Answers: " + str(correct_answer_count) + "\nIncorrect Answers: " + str(incorrect_answer_count) + "\n\nTotal Score:"
 	$result_set/score.text = str(score)
 	$result_set/name.text = main_dictionaries.player_name
@@ -91,7 +91,7 @@ func load_question_set():
 		var current_button_number_code = int(str(word_button.name))
 		#check words count to be assigned for each buttons. for buttons without words, assign empty text
 		if words_randomized.size() > current_button_number_code:
-			print(words_randomized[current_button_number_code])
+			#print(words_randomized[current_button_number_code])
 			word_button.text = words_randomized[current_button_number_code]
 		else:
 			word_button.text = ""
@@ -141,7 +141,7 @@ func _on_submit_pressed():
 	
 	var correct_answer = ""
 	for word in quiz_resources.quiz_b[question_set[answered_question_count]].words:
-		print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
+		#print(quiz_resources.quiz_b[question_set[answered_question_count]].words)
 		correct_answer += word + " "
 	
 	if inputed_words == quiz_resources.quiz_b[question_set[answered_question_count]].words:

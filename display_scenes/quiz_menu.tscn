@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fqk1hjfm8ah8"]
+[gd_scene load_steps=12 format=3 uid="uid://fqk1hjfm8ah8"]
 
 [ext_resource type="Theme" uid="uid://cjwibc6a6kroj" path="res://resources/themes/main.tres" id="1_23q71"]
 [ext_resource type="Texture2D" uid="uid://y7sjb067i3g0" path="res://resources/images/bg/BG1.png" id="2_4wpb0"]
@@ -8,6 +8,48 @@
 [ext_resource type="PackedScene" uid="uid://djyc1djrujk8k" path="res://object_scenes/back_button.tscn" id="5_vu5og"]
 [ext_resource type="Texture2D" uid="uid://c42gqb5fgqmdp" path="res://resources/images/9patch.png" id="6_jtapv"]
 [ext_resource type="PackedScene" uid="uid://bthyjx2tbvt7y" path="res://object_scenes/bgm_toggle.tscn" id="6_pq4s7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tswyl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.309804, 0.309804, 1)
+border_width_bottom = 5
+border_color = Color(0.596078, 0.407843, 0.278431, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy4pw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.45098, 0.45098, 1)
+border_width_bottom = 5
+border_color = Color(0.596078, 0.407843, 0.278431, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04ixe"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.309804, 0.309804, 1)
+border_width_bottom = 5
+border_color = Color(0.596078, 0.407843, 0.278431, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="quiz_menu" type="Control"]
 layout_mode = 3
@@ -46,9 +88,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -300.0
-offset_top = 97.0
+offset_top = 55.0
 offset_right = 300.0
-offset_bottom = 590.0
+offset_bottom = 548.0
 grow_horizontal = 2
 metadata/_edit_group_ = true
 
@@ -163,6 +205,69 @@ text = "Start the Quiz"
 layout_mode = 2
 text = "To Class"
 
+[node name="change_name" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -341.5
+offset_top = -144.0
+offset_right = 341.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="change_name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Hello Ahnaf Arzaqu Zaki, are you ready for a quiz?"
+horizontal_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="change_name"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="change_name/hbox"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+placeholder_text = "Type your name here"
+max_length = 30
+
+[node name="Button" type="Button" parent="change_name/hbox"]
+layout_mode = 2
+text = "Submit"
+
+[node name="Cancel" type="Button" parent="change_name/hbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tswyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yy4pw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04ixe")
+text = "Cancel"
+
+[node name="warning" type="Label" parent="change_name"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.388235, 0.25098, 1)
+theme_override_font_sizes/font_size = 20
+text = "Your name can not be empty!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="change_name"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.580392, 0.341176, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.580392, 0.341176, 1)
+theme_override_colors/font_hover_color = Color(1, 0.721569, 0.560784, 1)
+text = "Change Your Name"
+flat = true
+
 [node name="back_button" parent="." instance=ExtResource("5_vu5og")]
 layout_mode = 0
 offset_left = 50.0
@@ -172,17 +277,17 @@ offset_bottom = 168.0
 target_scene = "main_menu"
 
 [node name="bgm_toggle" parent="." instance=ExtResource("6_pq4s7")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_right = 0.0
-offset_left = 0.0
+layout_mode = 1
+offset_left = -64.0
 offset_top = 0.0
-offset_right = 64.0
+offset_right = 0.0
 offset_bottom = 64.0
-grow_horizontal = 1
 
 [connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin/quiz_a" to="." method="_on_quiz_a_pressed"]
 [connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_1/button_margin/library" to="." method="_on_library_pressed"]
 [connection signal="button_down" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin/quiz_b" to="." method="_on_quiz_b_button_down"]
 [connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/quiz_2/button_margin/class" to="." method="_on_class_pressed"]
+[connection signal="text_submitted" from="change_name/hbox/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="change_name/hbox/Button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="change_name/hbox/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="change_name/Button" to="." method="_on_button_pressed"]

@@ -77,7 +77,7 @@ func _on_submit_button_pressed():
 		
 		#check if all vocabuaries has been input done and library is finished
 		main_dictionaries.library_finished = main_dictionaries.check_library_finished()
-		print(main_dictionaries.library_finished)
+		#print(main_dictionaries.library_finished)
 		
 	else:
 		wrong_warning.visible = true

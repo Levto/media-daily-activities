@@ -57,7 +57,7 @@ func _on_dialogue_next_pressed():
 		if not main_dictionaries.lesson_finished_checker.has(main_dictionaries.selected_lesson):
 			main_dictionaries.lesson_finished_checker.append(main_dictionaries.selected_lesson)
 		main_dictionaries.lesson_finished = main_dictionaries.check_lesson_finished()
-		print(main_dictionaries.lesson_finished)
+		#print(main_dictionaries.lesson_finished)
 		
 	if dialogue.visible_characters != dialogue_length:
 		sfx_player.stream = load("res://resources/sfx/Card_Over.wav")

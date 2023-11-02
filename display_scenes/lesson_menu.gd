@@ -25,4 +25,4 @@ func _on_unlocker_pressed():
 	main_dictionaries.lesson_finished_checker = ["lesson_1", "lesson_2", "lesson_3", "lesson_4", "lesson_5"]
 	check_new_indicator()
 	main_dictionaries.check_lesson_finished()
-	print(main_dictionaries.lesson_finished)
+	#print(main_dictionaries.lesson_finished)

@@ -89,7 +89,7 @@ func load_question_set(prev_question):
 func load_results():
 	var score : float
 	score = correct_answer_count * 100 / answered_question_count
-	print(score)
+	#print(score)
 	$result_set/result_content.text = "Here are your results:\n\nCorrect Answers: " + str(correct_answer_count) + "\nIncorrect Answers: " + str(incorrect_answer_count) + "\n\nTotal Score:"
 	$result_set/score.text = str(score)
 	$result_set/name.text = main_dictionaries.player_name
